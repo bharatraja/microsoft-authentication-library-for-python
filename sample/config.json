@@ -1,0 +1,9 @@
+{
+    "authority": "https://login.microsoftonline.com/organizations",
+    "client_id": "c1206840-643d-40b3-b83a-b8b474aff203",
+    "username": "bharat@iozure.com",
+    "password": "MaleMan!Vanna5",
+    "scope": ["https://analysis.windows.net/powerbi/api/Dataset.ReadWrite.All"],
+    "endpoint": "https://api.powerbi.com/v1.0/myorg/datasets/"
+   
+}

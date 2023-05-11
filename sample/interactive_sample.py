@@ -28,7 +28,7 @@ import json, logging, msal, requests
 # logging.basicConfig(level=logging.DEBUG)  # Enable DEBUG log for entire script
 # logging.getLogger("msal").setLevel(logging.INFO)  # Optionally disable MSAL DEBUG logs
 
-config = json.load(open(sys.argv[1]))
+config = json.load(open("C:\\Users\\bharatra\\Documents\\code\\microsoft-authentication-library-for-python\\sample\\config.json"))
 
 # Create a preferably long-lived app instance which maintains a token cache.
 app = msal.PublicClientApplication(
@@ -61,7 +61,7 @@ if not result:
     result = app.acquire_token_interactive(  # Only works if your app is registered with redirect_uri as http://localhost
         config["scope"],
         #parent_window_handle=...,  # If broker is enabled, you will be guided to provide a window handle
-        login_hint=config.get("username"),  # Optional.
+        #login_hint=config.get("username"),  # Optional.
             # If you know the username ahead of time, this parameter can pre-fill
             # the username (or email address) field of the sign-in page for the user,
             # Often, apps use this parameter during reauthentication,
@@ -75,8 +75,9 @@ if not result:
 
 if "access_token" in result:
     # Calling graph using the access token
+    url_to_get_dataset=config["endpoint"] + "/" + "e62ef300-c84a-468b-bb28-c48a3410322d"
     graph_response = requests.get(  # Use token to call downstream service
-        config["endpoint"],
+        url_to_get_dataset ,
         headers={'Authorization': 'Bearer ' + result['access_token']},)
     print("Graph API call result: %s ..." % graph_response.text[:100])
 else:

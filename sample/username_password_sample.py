@@ -31,7 +31,7 @@ import msal
 # logging.basicConfig(level=logging.DEBUG)  # Enable DEBUG log for entire script
 # logging.getLogger("msal").setLevel(logging.INFO)  # Optionally disable MSAL DEBUG logs
 
-config = json.load(open(sys.argv[1]))
+config = json.load(open("C:\\Users\\bharatra\\Documents\\code\\microsoft-authentication-library-for-python\\sample\\config.json"))
 
 # Create a preferably long-lived app instance which maintains a token cache.
 app = msal.ClientApplication(
